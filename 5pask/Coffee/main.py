@@ -27,7 +27,7 @@ while running:
         print(f"Milk: {coffee_maker.milk}ml")
         print(f"Coffee: {coffee_maker.coffee}g")
         print(f"Water: {coffee_maker.water}ml")
-        print(f"Money: ${wallet.money}")
+        print(f"Money: ${wallet.money / 100}")
         found_flag = True
     for menuItem in menu.list:
         if key_word == menuItem.name:
