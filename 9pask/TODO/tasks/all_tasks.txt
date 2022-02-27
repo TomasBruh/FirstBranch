@@ -1,1 +1,4 @@
-{"lol":"completed"}
+{
+"Go to the store":"Completed",
+"Clean my room": "Yet to begin"
+}
