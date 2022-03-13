@@ -1,7 +1,8 @@
 import question_data
 from question import Question
 from question_bank import QuestionBank
-import quiz_brain
+from quiz_brain import QuizBrain
+
 
 def sort_by_difficulty(list_of_given_questions):
     """ Sorts a list of question objects into a list of question objects with the same difficulty,
@@ -62,10 +63,11 @@ all_questions = []
 for question in question_data.question_data:
     all_questions.append(Question(question["category"], question["type"], str(question["difficulty"]),
                                   question["question"], question["correct_answer"], question["incorrect_answers"]))
-print("---- Quiz setup ----")
+print("-------------- Quiz setup --------------")
 sorted_questions = sort_boolean(all_questions)
 difficulty_sorted_questions = sort_by_difficulty(all_questions)
 difficulty_category_sorted_questions = sort_by_category(difficulty_sorted_questions)
 
 question_bank = QuestionBank(difficulty_category_sorted_questions)
-quiz_brain.run_game(question_bank)
+quiz_brain = QuizBrain(question_bank, 0)
+quiz_brain.run_program()
