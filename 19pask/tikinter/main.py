@@ -21,4 +21,5 @@ button.grid(column=0, row=2)
 name_input = Entry(width=15)
 name_input.grid(column=0, row=1)
 
+
 window.mainloop()
