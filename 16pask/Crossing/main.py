@@ -33,7 +33,7 @@ def move_right():
 
 
 def fraction():
-    print("ok")
+    print("POMODORO")
     if player_turtle.pos()[1] == 200 or player_turtle.pos()[1] > 200:
         return
 
