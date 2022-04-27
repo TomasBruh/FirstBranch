@@ -23,8 +23,11 @@ class Pipes:
         self.time_to_spawn = 50
 
     def add_pipes(self):
-        random_y0 = random.randint(self.screen.window_height() / 2, self.screen.window_height() / 2 - 100)
-        random_y1 = self.screen.window_height() - random_y0
+        a = self.screen.window_height() / 2
+        # print(a)
+        b = a - 400
+        random_y0 = random.randint(b, a)
+        random_y1 = self.screen.window_height() - random_y0 - 50
         if self.time_to_spawn == 0:
             self.pipes[0].append(Pipe(self.screen, self.screen.window_height() / 2, "pipe_upsidedown1.gif"))
             self.pipes[1].append(Pipe(self.screen, -(self.screen.window_height() / 2), "pipe1.gif"))
