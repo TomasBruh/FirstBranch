@@ -35,13 +35,46 @@ class UserSettingsCreate(BaseModel):
     odometer_is_eu: bool
 
 
+class CarBrandCreate(BaseModel):
+    name: str
+    founded_in_year: str
+
+
 class CarBrandModelCreate(BaseModel):
     name: str
     release_date: str
     brand_id: int
 
 
-class CarBrandCreate(BaseModel):
+class CarBrandModelAll(BaseModel):
+    id: int
+    name: str
+    release_date: str
+    brand_id: int
+
+
+class CarAll(BaseModel):
+    id: int
+    mileage: int
+    brand_model_id: int
+
+    class Config:
+        orm_mode = True
+
+
+class CarCreate(BaseModel):
+    mileage: int
+    brand_model_id: int
+
+
+class CarBrandAll(BaseModel):
+    id: int
     name: str
     founded_in_year: str
+    models: List[CarBrandModelAll] = []
+
+    class Config:
+        orm_mode = True
+
+
 

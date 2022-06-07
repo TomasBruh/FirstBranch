@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5cdd1a09-3a37-4638-b3f0-452a3c2e679a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/33pask/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/33pask/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/33pask/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/33pask/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/33pask/routers/user_routers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/33pask/schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/28-29-pask.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/31pask/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/31pask/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/33pask/routers/brand_routers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/33pask/routers/car_routers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/33pask/.database.db" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/.database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/33pask/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/33pask/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/33pask/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/schemas.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
