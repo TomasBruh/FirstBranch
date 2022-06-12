@@ -29,3 +29,25 @@ def create_brand(request: schemas.CarBrandCreate, db: Session = Depends(get_db))
     db.refresh(new_brand)
 
     return new_brand
+
+
+@router.delete("/delete/{brand_id}")
+def delete_car_brand(brand_id: int, db: Session = Depends(get_db)):
+    car_brand = db.get(models.CarBrand, brand_id)
+    # if not hero:
+    #     raise HTTPException(status_code=404, detail="Hero not found")
+    db.delete(car_brand)
+    db.commit()
+    return car_brand
+
+
+
+# @router.delete('/delete')
+# def delete_all_brands(db: Session = Depends(get_db)):
+#     delete_this = db.query(models.CarBrandAll).all()
+#     db.delete(delete_this)
+#     db.commit()
+#     db.refresh(models.CarBrandAll)
+#
+#     return "Deleted"
+

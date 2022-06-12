@@ -38,3 +38,30 @@ def create_user(request: schemas.UserCreate, request_settings: schemas.UserSetti
     db.refresh(new_user)
 
     return new_user
+
+
+@router.delete("/delete/{user_id}")
+def delete_user(user_id: int, db: Session = Depends(get_db)):
+    user = db.get(models.User, user_id)
+    # if not hero:
+    #     raise HTTPException(status_code=404, detail="Hero not found")
+    db.delete(user)
+    db.commit()
+    return user
+
+
+@router.patch("/update")
+def update_user(user_request: schemas.UserUpdate, settings_request: schemas.UserSettingsUpate,
+                db: Session = Depends(get_db)):
+    user = db.get(models.User, user_request.user_id)
+    # if not db_hero:
+    #     raise HTTPException(status_code=404, detail="Hero not found")
+    user_settings = db.get(models.UserSettings, settings_request.settigs_id)
+    user_settings_data = user_settings.dict(exclude_unset=True)
+    user_data = user_request.dict(exclude_unset=True)
+    for key, value in user_data.items():
+        setattr(user, key, value)
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+    return user

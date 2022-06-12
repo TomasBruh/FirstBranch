@@ -20,6 +20,16 @@ class UserCreate(BaseModel):
     email: str
 
 
+class UserUpdate(BaseModel):
+    id: int
+    first_name: str
+    last_name: str
+    email: str
+
+    class Config:
+        orm_mode = True
+
+
 class UserSettingsAll(BaseModel):
     id: int
     user_id: int
@@ -27,17 +37,21 @@ class UserSettingsAll(BaseModel):
     odometer_is_eu: bool
 
     class Config:
-        orm_mode = True
+        orm_mode: True
+
+
+class UserSettingsUpdate(BaseModel):
+    id: int
+    consumption_is_eu: bool
+    odometer_is_eu: bool
+
+    class Config:
+        orm_mode: True
 
 
 class UserSettingsCreate(BaseModel):
     consumption_is_eu: bool
     odometer_is_eu: bool
-
-
-class CarBrandCreate(BaseModel):
-    name: str
-    founded_in_year: str
 
 
 class CarBrandModelCreate(BaseModel):
@@ -53,18 +67,9 @@ class CarBrandModelAll(BaseModel):
     brand_id: int
 
 
-class CarAll(BaseModel):
-    id: int
-    mileage: int
-    brand_model_id: int
-
-    class Config:
-        orm_mode = True
-
-
-class CarCreate(BaseModel):
-    mileage: int
-    brand_model_id: int
+class CarBrandCreate(BaseModel):
+    name: str
+    founded_in_year: str
 
 
 class CarBrandAll(BaseModel):
@@ -75,6 +80,23 @@ class CarBrandAll(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class CarAll(BaseModel):
+    id: int
+    mileage: int
+    brand_model_id: int
+
+    class Config:
+        orm_mode: True
+
+
+class CarCreate(BaseModel):
+    mileage: int
+    brand_model_id: int
+
+
+
 
 
 

@@ -32,7 +32,7 @@ class CarBrand(Base):
     name = Column(String)
     founded_in_year = Column(Integer)
 
-    # models = relationship('CarBrandModel', back_populates='brand')  # , uselist =True#
+    models = relationship('CarBrandModel', back_populates='brand')  # , uselist =True#
 
 
 class CarBrandModel(Base):
@@ -40,7 +40,7 @@ class CarBrandModel(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
-    release_date = Column(String)
+    # release_date = Column(String)
     # four_wheel_drive = Column(Boolean)
 
     brand_id = Column(Integer, ForeignKey('car_brands.id'))
