@@ -3,6 +3,7 @@ import datetime
 from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, DateTime
 from database import Base
 from sqlalchemy.orm import relationship
+# ID BASE?????????????????
 
 
 class User(Base):
@@ -15,6 +16,8 @@ class User(Base):
 
     settings = relationship('UserSettings', back_populates='user')
     settings_id = Column(Integer, ForeignKey('user_settings.id'))
+
+    cars = relationship('Car', back_populates='user')
 
 
 class UserSettings(Base):
@@ -35,10 +38,11 @@ class CarBrand(Base):
     founded_in_year = Column(Integer)
 
     models = relationship('CarModel', back_populates='brand')  # , uselist =True#
+    cars = relationship('Car', back_populates='brand')
 
 
 class CarModel(Base):
-    __tablename__ = 'car_brand_models'
+    __tablename__ = 'car_models'
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True)
@@ -47,14 +51,15 @@ class CarModel(Base):
 
     brand_id = Column(Integer, ForeignKey('car_brands.id'))
     brand = relationship('CarBrand', back_populates='models')
-    # cars = relationship('Car', back_populates='brand_model')
+
+    cars = relationship('Car', back_populates='model')
 
 
 class CarMileage(Base):
     __tablename__ = 'car_mileage'
 
     id = Column(Integer, primary_key=True, index=True)
-    amount = Column(Integer)
+    distance = Column(Integer)
     created_at = Column(DateTime, default=datetime.datetime.now())
     car_id = Column(Integer, ForeignKey('cars.id'))
     car = relationship('Car', back_populates='mileage')
@@ -64,7 +69,13 @@ class Car(Base):
     __tablename__ = 'cars'
 
     id = Column(Integer, primary_key=True, index=True)
-    mileage = relationship('car_mileage', back_populates='car')
+    mileage = relationship('CarMileage', back_populates='car')
 
-    # brand_model_id = Column(String, ForeignKey('car_brand_models.id'))
-    # brand_model = relationship('CarBrandModel', back_populates='cars')
+    brand = relationship('CarBrand', back_populates='cars')
+    brand_id = Column(Integer, ForeignKey('car_brands.id'))
+
+    model = relationship('CarModel', back_populates='cars')
+    model_id = Column(Integer, ForeignKey('car_models.id'))
+
+    user_id = Column(Integer, ForeignKey('users.id'))
+    user = relationship('User', back_populates='cars')

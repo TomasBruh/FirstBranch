@@ -11,17 +11,23 @@ router = APIRouter(
 )
 
 
-@router.get('', response_model=List[schemas.CarAll])
+@router.get('')
 def get_all(db: Session = Depends(get_db)):
-    return db.query(models.Car).all()
+    cars = db.query(models.Car).all()
+    for car in cars:
+        _ = car.model
+        _ = car.brand
+        _ = car.mileage
+    return cars
 
 
 @router.post('/create')
 def create_car(request: schemas.CarCreate, db: Session = Depends(get_db)):
 
     new_car = models.Car(
-        mileage=request.mileage,
-        brand_model_id=request.brand_mileage_id
+        model_id=request.model_id,
+        brand_id=request.brand_id,
+        user_id=request.user_id
     )
 
     db.add(new_car)
@@ -29,3 +35,26 @@ def create_car(request: schemas.CarCreate, db: Session = Depends(get_db)):
     db.refresh(new_car)
 
     return new_car
+
+
+@router.delete('/delete/{car_id}')
+def delete_car(car_id: int, db: Session = Depends(get_db)):
+    car = db.get(models.Car, car_id)
+    db.delete(car)
+    db.commit()
+    return car
+
+
+@router.patch('/update')
+def update_car(request: schemas.CarUpdate, db: Session = Depends(get_db)):
+    car = db.get(models.Car, request.id)
+    car_data = request.dict()
+    for key, value in car_data.items():
+        setattr(car, key, value)
+    _ = car.model
+    _ = car.brand
+    _ = car.mileage
+    db.add(car)
+    db.commit()
+    db.refresh(car)
+    return car

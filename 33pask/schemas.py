@@ -1,5 +1,4 @@
-import datetime
-from typing import List, Optional
+from typing import List
 from pydantic import BaseModel
 
 
@@ -83,16 +82,22 @@ class CarBrandUpdate(CarBrandCreate):
 
 class CarAll(OrmBaseModel):
     id: int
-    mileage: int
-    brand_model_id: int
+    brand_id: int
+    model_id: int
 
 
 class CarCreate(BaseModel):
-    mileage: int
-    brand_model_id: int
+    brand_id: int
+    model_id: int
+    user_id: int
 
 
+class CarUpdate(CarAll):
+    pass
 
 
+class CarMileageCreate(BaseModel):
+    distance: int
+    car_id: int
 
 

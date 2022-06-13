@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5cdd1a09-3a37-4638-b3f0-452a3c2e679a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/33pask/routers/model_routers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/33pask/routers/mileage_routers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/33pask/.database.db" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/.database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/33pask/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/33pask/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/33pask/routers/brand_routers.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/routers/brand_routers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/33pask/routers/car_routers.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/routers/car_routers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/33pask/routers/user_routers.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/routers/user_routers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/33pask/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/schemas.py" afterDir="false" />
     </list>

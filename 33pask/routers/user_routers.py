@@ -16,6 +16,10 @@ def get_all_users_and_settings(db: Session = Depends(get_db)):
     all_users = db.query(models.User).all()
     for user in all_users:
         _ = user.settings
+        for car in user.cars:
+            _ = car.brand
+            _ = car.model
+            _ = car.mileage
     return all_users
 
 
