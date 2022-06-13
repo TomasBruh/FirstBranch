@@ -5,9 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/Python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Python.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/33pask/.database.db" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/.database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/33pask/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/33pask/routers/brand_routers.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/routers/brand_routers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/33pask/.database.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/33pask/routers/user_routers.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/routers/user_routers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/33pask/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/33pask/schemas.py" afterDir="false" />
     </list>
@@ -44,6 +42,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -71,7 +70,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

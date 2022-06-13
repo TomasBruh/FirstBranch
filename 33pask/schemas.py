@@ -41,7 +41,6 @@ class UserSettingsAll(BaseModel):
 
 
 class UserSettingsUpdate(BaseModel):
-    id: int
     consumption_is_eu: bool
     odometer_is_eu: bool
 

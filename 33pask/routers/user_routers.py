@@ -11,13 +11,31 @@ router = APIRouter(
 )
 
 
-@router.get('', response_model=List[schemas.UserAll])
-def get_all(db: Session = Depends(get_db)):
-    return db.query(models.User).all()
+@router.get('')  # RESPONSE MODEL!!!!!!!!!!!!!!!!!!!!!!!
+def get_all_users_and_settings(db: Session = Depends(get_db)):
+    all_users = db.query(models.User).all()
+    all_settings = db.query(models.UserSettings).all()
+
+    for user in all_users:
+        getattr()
+        # settings_id = user.settings_id
+        # setattr(user, "settings", all_settings)
+
+    # test_list = []
+    # for i in range(len(all_users)):
+    #     thing = {
+    #         "settings": all_settings[i],
+    #         "IDK": all_users[i]
+    #     }
+    #     test_list.append(
+    #         thing
+    #     )
+    return all_settings
 
 
 @router.post('/create')
-def create_user(request: schemas.UserCreate, request_settings: schemas.UserSettingsCreate, db: Session = Depends(get_db)):
+def create_user_with_settings(request: schemas.UserCreate, request_settings: schemas.UserSettingsCreate,
+                              db: Session = Depends(get_db)):
     new_user_settings = models.UserSettings(
         consumption_is_eu=request_settings.consumption_is_eu,
         odometer_is_eu=request_settings.odometer_is_eu
@@ -41,27 +59,33 @@ def create_user(request: schemas.UserCreate, request_settings: schemas.UserSetti
 
 
 @router.delete("/delete/{user_id}")
-def delete_user(user_id: int, db: Session = Depends(get_db)):
+def delete_user_and_his_settings(user_id: int, db: Session = Depends(get_db)):
     user = db.get(models.User, user_id)
+    settings = db.get(models.UserSettings, user.settings_id)
     # if not hero:
     #     raise HTTPException(status_code=404, detail="Hero not found")
     db.delete(user)
+    db.commit()
+    db.delete(settings)
     db.commit()
     return user
 
 
 @router.patch("/update")
-def update_user(user_request: schemas.UserUpdate, settings_request: schemas.UserSettingsUpate,
+def update_user(user_request: schemas.UserUpdate, settings_request: schemas.UserSettingsUpdate,
                 db: Session = Depends(get_db)):
-    user = db.get(models.User, user_request.user_id)
+    user = db.get(models.User, user_request.id)
     # if not db_hero:
     #     raise HTTPException(status_code=404, detail="Hero not found")
-    user_settings = db.get(models.UserSettings, settings_request.settigs_id)
-    user_settings_data = user_settings.dict(exclude_unset=True)
     user_data = user_request.dict(exclude_unset=True)
+    user_settings = db.get(models.UserSettings, user.settings_id)
+    user_settings.consumption_is_eu = settings_request.consumption_is_eu
+    user_settings.odometer_is_eu = settings_request.odometer_is_eu
     for key, value in user_data.items():
         setattr(user, key, value)
     db.add(user)
+    db.add(user_settings)
     db.commit()
     db.refresh(user)
+    db.refresh(user_settings)
     return user
