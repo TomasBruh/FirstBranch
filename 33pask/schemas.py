@@ -84,6 +84,7 @@ class CarAll(OrmBaseModel):
     id: int
     brand_id: int
     model_id: int
+    user_id: int
 
 
 class CarCreate(BaseModel):
@@ -101,3 +102,12 @@ class CarMileageCreate(BaseModel):
     car_id: int
 
 
+class CarMileageAll(BaseModel):
+    id: int
+    distance: int
+    car_id: int
+    created_at: str
+
+
+class CarMileageUpdate(CarMileageCreate):
+    id: int

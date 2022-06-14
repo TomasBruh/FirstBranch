@@ -1,9 +1,10 @@
-from fastapi import APIRouter, Depends
+from typing import List
+from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 import models
 import schemas
 from database import get_db
-
+from repository import mileage_repository as rep
 
 router = APIRouter(
     prefix='/api/mileage',
@@ -11,15 +12,22 @@ router = APIRouter(
 )
 
 
+@router.get('')
+def get_all_mileages(db: Session = Depends(get_db)):
+    return rep.get_all_mileages(db)
+
+
 @router.post('/create')
 def create_mileage(request: schemas.CarMileageCreate, db: Session = Depends(get_db)):
-    new_mileage = models.CarMileage(
-        distance=request.distance,
-        car_id=request.car_id
-    )
+    return rep.create_mileage(request, db)
 
-    db.add(new_mileage)
-    db.commit()
-    db.refresh(new_mileage)
 
-    return new_mileage
+@router.delete('/delete/{mileage_id}')
+def delete_mileage(mileage_id: int, db: Session = Depends(get_db)):
+    return rep.delete_mileage(mileage_id, db)
+
+
+@router.patch('/update')
+def update_mileage(request: schemas.CarMileageUpdate, db: Session = Depends(get_db)):
+    return rep.update_mileage(request, db)
+
